@@ -1,0 +1,117 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    @apply bg-white text-gray-900 dark:bg-dark-900 dark:text-gray-100 transition-colors duration-300;
+  }
+
+  * {
+    scrollbar-width: thin;
+    scrollbar-color: theme('colors.primary.400') transparent;
+  }
+
+  *::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+
+  *::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  *::-webkit-scrollbar-thumb {
+    background-color: theme('colors.primary.400');
+    border-radius: 9999px;
+  }
+
+  *::-webkit-scrollbar-thumb:hover {
+    background-color: theme('colors.primary.500');
+  }
+}
+
+@layer components {
+  .gradient-primary {
+    @apply bg-gradient-to-r from-primary-500 to-accent-violet;
+  }
+
+  .gradient-primary-reverse {
+    @apply bg-gradient-to-l from-primary-500 to-accent-violet;
+  }
+
+  .gradient-dark {
+    @apply bg-gradient-to-br from-dark-800 to-dark-900;
+  }
+
+  .gradient-hero {
+    @apply bg-gradient-to-br from-primary-600 via-primary-700 to-accent-violet-dark;
+  }
+
+  .gradient-text {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-primary-400 to-accent-cyan;
+  }
+
+  .gradient-border {
+    @apply border border-transparent bg-clip-padding;
+    background-image: linear-gradient(var(--tw-gradient-from), var(--tw-gradient-to));
+  }
+
+  .glass {
+    @apply bg-white/10 backdrop-blur-lg border border-white/20;
+  }
+
+  .glass-dark {
+    @apply bg-dark-800/80 backdrop-blur-lg border border-white/10;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+/* Typing animation dots */
+.typing-dots {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.typing-dots span {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background-color: currentColor;
+  animation: typing 1.4s infinite both;
+}
+
+.typing-dots span:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+.typing-dots span:nth-child(3) {
+  animation-delay: 0.4s;
+}
+
+@keyframes typing {
+  0% {
+    opacity: 0.2;
+    transform: scale(0.8);
+  }
+  20% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  100% {
+    opacity: 0.2;
+    transform: scale(0.8);
+  }
+}
